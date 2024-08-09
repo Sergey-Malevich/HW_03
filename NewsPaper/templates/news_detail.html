@@ -1,0 +1,24 @@
+{% extends 'flatpages/default.html' %}
+
+<!-- подключаем фильтр для новостей указывая питон файл с фильтром -->
+{% load censor %}
+
+{% block title %}
+Post
+{% endblock title %}
+
+
+{% block content %}
+<h4>{{ news_detail.title|censor}}</h4>
+    <table>
+    <tr>
+        <td>{{ news_detail.time_in|date:'d M Y'}}</td>
+    </tr>
+    <tr>
+        <td>{{ news_detail.content|censor }}</td>
+    </tr>
+    </table>
+{% endblock content %}
+
+
+
