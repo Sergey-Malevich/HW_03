@@ -1,0 +1,22 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}Страница категорий{% endblock %}
+{% block content %}
+
+<h2>Все категории:</h2>
+
+    {% if categorylist %}
+        <form action="" method="post">
+        {% csrf_token %}
+        <table>
+        {% for Category in categorylist%}
+            <tr>
+                <td>{{ Category.category}}</td>
+                    <td><button> <a href= {{ Category.pk }}/subscribe/> Подписаться</a> </button></td>
+            </tr>
+            {% endfor%}
+        </table>
+        </form>
+
+    {% endif %}
+
+{% endblock %}
